@@ -10,6 +10,8 @@ function App() {
   let [modal,modal변경] = useState(false);  
   let [누른제목, 누른제목변경] = useState(0);
 
+  let [입력값,입력값변경] = useState('');
+
   function 제목바꾸기() {
     var newArray = [...글제목];
     newArray[0] = "여자 코트 추천";
@@ -62,7 +64,7 @@ function App() {
       {
         글제목.map(function(글,i){
           return ( 
-            <div className="list">
+            <div className="list" key={i}>
             <h3 onClick={() => {누른제목변경(i)}}> {글} 
               <span onClick={() => { 따봉변경(따봉 + 1); }}>👍</span>
               {따봉}
@@ -77,6 +79,8 @@ function App() {
       {/* <button onClick={() => {누른제목변경(0)}}>버튼1</button>
       <button onClick={() => {누른제목변경(1)}}>버튼2</button>
       <button onClick={() => {누른제목변경(2)}}>버튼3</button> */}
+
+      {/* <input onChange={ (e) => { 입력값변경(e.target.value) }}></input> */}
 
       {/* 애플코딩 */}
       <button onClick={ ()=>{ modal변경(!modal) } }> 열고닫는버튼 </button>

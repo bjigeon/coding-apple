@@ -82,6 +82,18 @@ function App() {
 
       {/* <input onChange={ (e) => { 입력값변경(e.target.value) }}></input> */}
 
+      
+      
+      {입력값}
+      <div className="publish">
+        <input onChange={ (e) => { 입력값변경(e.target.value)}}/>
+        <button onClick={ () => { 
+          var arraycopy = [...글제목];
+          arraycopy.unshift(입력값);
+          글제목변경(arraycopy); 
+        }}>저장</button>
+      </div>
+
       {/* 애플코딩 */}
       <button onClick={ ()=>{ modal변경(!modal) } }> 열고닫는버튼 </button>
       { 
@@ -103,5 +115,6 @@ function Modal(props) {
     </div>
   );
 }
+
 
 export default App;

@@ -102,6 +102,9 @@ function App() {
         : null
       }
 
+      <Profile/>
+
+
     </div>
   );
 }
@@ -115,6 +118,43 @@ function Modal(props) {
     </div>
   );
 }
+
+
+
+
+class Profile extends React.Component{
+  constructor(){
+    super();
+    this.state = {name : 'kim', age : 30}
+  }
+
+  changeName(){
+    this.setState({name : 'park'})
+  }
+
+  render(){
+    return(
+      <div>
+        <h3>프로필입니다</h3>
+        <p>저는 {this.state.name} 입니다.</p>
+        {/* <button onClick={ () => {this.setState({name : 'park'}) }}>버튼</button> */}
+        <button onClick={ this.changeName.bind(this)}>버튼</button>
+
+      </div>
+    )
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 export default App;

@@ -7,6 +7,15 @@
   pointer-events: none;
 }
 
+.background{
+  background-color: rgb(214, 242, 253);
+  /* background-image: url('https://codingapple.com/wp-content/uploads/2020/05/background.jpg'); */
+  background-image: url('./background.jpg');
+  background-size: cover;
+  color: white;
+  height: 240px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

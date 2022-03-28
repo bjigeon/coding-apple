@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import {Navbar,Container,Nav,NavDropdown,Jumbotron,Button} from 'react-bootstrap';
+import Data from './data.js'
 
 
 function App() {
+
+  let [shoes,shoes변경] = useState(Data);
+
+
   return (
     <div className="App">
       {/* <a class="btn btn-primary">Link</a> */}
@@ -42,8 +47,8 @@ function App() {
       <div className='row'>
         <div className='col-md-4'>
           <img src='https://codingapple1.github.io/shop/shoes1.jpg' width="100%"/>
-          <h4>상품명</h4>
-          <p>상품설명 & 가격</p>
+          <h4>{shoes[0].title}</h4>
+          <p>{shoes[0].content} & {shoes[0].price}</p>
         </div>
         <div className='col-md-4'>
           <img src='https://codingapple1.github.io/shop/shoes2.jpg' width="100%"/>

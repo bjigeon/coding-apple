@@ -45,7 +45,7 @@ function App() {
 
     <div className='container'>
       <div className='row'>
-        <div className='col-md-4'>
+        {/* <div className='col-md-4'>
           <img src='https://codingapple1.github.io/shop/shoes1.jpg' width="100%"/>
           <h4>{shoes[0].title}</h4>
           <p>{shoes[0].content} & {shoes[0].price}</p>
@@ -59,7 +59,25 @@ function App() {
           <img src='https://codingapple1.github.io/shop/shoes3.jpg' width="100%"/>
             <h4>상품명</h4>
             <p>상품설명 & 가격</p>  
-        </div> 
+        </div>  */}
+
+
+        {/* <Product/> */}
+
+
+        {
+          shoes.map(function(txt,i){
+            return(
+              <div className='col-md-4' key={i}>
+                {/* <img src = {'https://codingapple1.github.io/shop/shoes'+(i+1)+'.jpg'} width="100%"/> */}
+                <img src = {`https://codingapple1.github.io/shop/shoes${i}.jpg`} width="100%"/>
+                  <h4>{shoes[i].title}</h4>
+                  <p>{shoes[i].content} & {shoes[i].price}</p>  
+              </div>
+            );
+          })
+        }
+
       </div>
 
     </div>
@@ -68,5 +86,22 @@ function App() {
     </div>
   );
 }
+
+function Product(){
+  let [shoes,shoes변경] = useState(Data);
+  
+  return(
+    <div className='col-md-4'>
+      <img src='https://codingapple1.github.io/shop/shoes1.jpg' width="100%"/>
+        <h4>{shoes[0].title}</h4>
+        <p>{shoes[0].content} & {shoes[0].price}</p>  
+    </div> 
+  );
+}
+
+
+
+
+
 
 export default App;

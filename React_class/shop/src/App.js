@@ -1,12 +1,15 @@
+
 import React, { useState } from 'react';
 import './App.css';
 import {Navbar,Container,Nav,NavDropdown,Jumbotron,Button} from 'react-bootstrap';
 import Data from './data.js'
 
 
+
 function App() {
 
   let [shoes,shoes변경] = useState(Data);
+
 
 
   return (
@@ -63,20 +66,30 @@ function App() {
 
 
         {/* <Product/> */}
-
-
         {
+          shoes.map((a,i) => {
+            return <Card shoes ={shoes[i]} i={i} key={i}/>
+          })
+        }
+        
+        {/* <Card shoes={shoes[0]}/>
+        <Card shoes={shoes[1]}/>
+        <Card shoes={shoes[2]}/> */}
+
+
+        
+        {/* {
           shoes.map(function(txt,i){
             return(
               <div className='col-md-4' key={i}>
-                {/* <img src = {'https://codingapple1.github.io/shop/shoes'+(i+1)+'.jpg'} width="100%"/> */}
-                <img src = {`https://codingapple1.github.io/shop/shoes${i}.jpg`} width="100%"/>
+                <img src = {`https://codingapple1.github.io/shop/shoes${i+1}.jpg`} width="100%"/>
                   <h4>{shoes[i].title}</h4>
                   <p>{shoes[i].content} & {shoes[i].price}</p>  
               </div>
             );
           })
-        }
+        } */}
+        
 
       </div>
 
@@ -97,6 +110,16 @@ function Product(){
         <p>{shoes[0].content} & {shoes[0].price}</p>  
     </div> 
   );
+}
+
+function Card(props){
+  return(
+    <div className='col-md-4'>
+      <img src= {'https://codingapple1.github.io/shop/shoes'+ (props.i + 1) +'.jpg'} width="100%"/>
+        <h4>{props.shoes.title}</h4>
+        <p>{props.shoes.content} & {props.shoes.price}</p>  
+    </div> 
+  )
 }
 
 

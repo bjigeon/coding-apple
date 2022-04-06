@@ -4,6 +4,7 @@ import './App.css';
 import {Navbar,Container,Nav,NavDropdown,Jumbotron,Button} from 'react-bootstrap';
 import Data from './data.js'
 
+import {Link,Route,Switch} from 'react-router-dom';
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
       </Container>
     </Navbar>
 
-    <Jumbotron className='background'>
+    {/* <Jumbotron className='background'>
       <h1>20% Season Off</h1>
       <p>
         This is a simple hero unit, a simple jumbotron-style component for calling
@@ -44,11 +45,38 @@ function App() {
       <p>
         <Button bsStyle="primary">Learn more</Button>
       </p>
-    </Jumbotron>
+    </Jumbotron> */}
 
-    <div className='container'>
+    <Route exact path="/">
+      <Jumbotron className='background'>
+        <h1>20% Season Off</h1>
+        <p>
+          This is a simple hero unit, a simple jumbotron-style component for calling
+          extra attention to featured content or information.
+        </p>
+        <p>
+          <Button bsStyle="primary">Learn more</Button>
+        </p>
+      </Jumbotron>
+
+      <div className='container'>
+        <div className='row'>
+          {
+            shoes.map((a,i) => {
+              return <Card shoes ={shoes[i]} i={i} key={i}/>
+            })
+          }
+        </div>
+      </div>
+    </Route>
+
+    <Route exact path="/detail">
+      <div>디테일페이지</div>
+    </Route>
+
+    {/* <div className='container'>
       <div className='row'>
-        {/* <div className='col-md-4'>
+        <div className='col-md-4'>
           <img src='https://codingapple1.github.io/shop/shoes1.jpg' width="100%"/>
           <h4>{shoes[0].title}</h4>
           <p>{shoes[0].content} & {shoes[0].price}</p>
@@ -62,23 +90,23 @@ function App() {
           <img src='https://codingapple1.github.io/shop/shoes3.jpg' width="100%"/>
             <h4>상품명</h4>
             <p>상품설명 & 가격</p>  
-        </div>  */}
+        </div> 
 
 
-        {/* <Product/> */}
+        <Product/>
         {
           shoes.map((a,i) => {
             return <Card shoes ={shoes[i]} i={i} key={i}/>
           })
         }
         
-        {/* <Card shoes={shoes[0]}/>
+        <Card shoes={shoes[0]}/>
         <Card shoes={shoes[1]}/>
-        <Card shoes={shoes[2]}/> */}
+        <Card shoes={shoes[2]}/>
 
 
         
-        {/* {
+        {
           shoes.map(function(txt,i){
             return(
               <div className='col-md-4' key={i}>
@@ -88,12 +116,12 @@ function App() {
               </div>
             );
           })
-        } */}
+        }
         
 
       </div>
 
-    </div>
+    </div> */}
 
 
     </div>

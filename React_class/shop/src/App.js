@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import {Navbar,Container,Nav,NavDropdown,Jumbotron,Button} from 'react-bootstrap';
 import Data from './data.js'
+import Detail from './Detail.js'
 
 import {Link,Route,Switch} from 'react-router-dom';
 
@@ -23,7 +24,7 @@ function App() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Nav.Link href="#link">Detail</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -71,8 +72,12 @@ function App() {
     </Route>
 
     <Route exact path="/detail">
-      <div>디테일페이지</div>
+
+      <Detail/>
+
     </Route>
+
+
 
     {/* <div className='container'>
       <div className='row'>
@@ -149,10 +154,6 @@ function Card(props){
     </div> 
   )
 }
-
-
-
-
 
 
 export default App;

@@ -23,8 +23,8 @@ function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Detail</Nav.Link>
+            <Nav.Link><Link to="/">Home</Link></Nav.Link>
+            <Nav.Link><Link to="/Detail">Detail</Link></Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -48,6 +48,8 @@ function App() {
       </p>
     </Jumbotron> */}
 
+
+    <Switch>
     <Route exact path="/">
       <Jumbotron className='background'>
         <h1>20% Season Off</h1>
@@ -72,11 +74,14 @@ function App() {
     </Route>
 
     <Route exact path="/detail">
-
       <Detail/>
-
     </Route>
 
+    <Route path="/:id">
+      <div>아무거나 적엇을때 이거 보여줌</div>
+    </Route>
+        
+    </Switch>
 
 
     {/* <div className='container'>

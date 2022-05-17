@@ -15,12 +15,8 @@ let 제목 = styled.h4`
 `;
 
 function Detail(props) {
-  useEffect(() => {
-    setTimeout(() => {});
-    console.log(111111);
-  });
-
   let { id } = useParams();
+  let [alert, setalert] = useState(true);
 
   //방문기록 등을 저장해놓는 object
   let history = useHistory();
@@ -29,17 +25,28 @@ function Detail(props) {
     return a.price - b.price;
   });
 
+  useEffect(() => {
+    setTimeout(() => {
+      setalert(false);
+    }, 2000);
+  }, []);
+
   return (
     <div className="container">
-      <박스>
-        {/* <제목 색상={"red"}>Detail</제목> */}
+      {/* <박스>
+        <제목 색상={"red"}>Detail</제목>
         <제목 색상="red" className="red">
           Detail
         </제목>
-      </박스>
-      <div className="my-alert2">
+      </박스> */}
+      {/* <div className="my-alert2">
         <p>재고가 얼마 남지 않았습니다.</p>
+      </div> */}
+
+      <div className="container">
+        {alert == true ? <div className="alert alert-warning">2초 이내 구매시 할인</div> : null}
       </div>
+
       <div className="row">
         <div className="col-md-6">
           <img

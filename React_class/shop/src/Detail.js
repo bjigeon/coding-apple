@@ -26,9 +26,14 @@ function Detail(props) {
   });
 
   useEffect(() => {
-    setTimeout(() => {
+    let a = setTimeout(() => {
       setalert(false);
     }, 2000);
+
+    return () => {
+      console.log(1);
+      clearTimeout(a);
+    };
   }, []);
 
   return (

@@ -7,10 +7,10 @@ function App() {
   let posts = "강남 고기 맛집";
   let [글제목, 글제목변경] = useState(["남자 코트 추천", "강남 우동 맛집", "파이썬독학"]);
   let [따봉, 따봉변경] = useState(0);
-  let [modal,modal변경] = useState(false);  
+  let [modal, modal변경] = useState(false);
   let [누른제목, 누른제목변경] = useState(0);
 
-  let [입력값,입력값변경] = useState('');
+  let [입력값, 입력값변경] = useState("");
 
   function 제목바꾸기() {
     var newArray = [...글제목];
@@ -47,7 +47,6 @@ function App() {
       </div> */}
       {/* {modal == true ? <Modal /> : null} */}
 
-
       {/* 내꺼 */}
       {/* <button onClick={() => {modal변경(modal + 1)}}>버튼</button>
       {
@@ -56,25 +55,33 @@ function App() {
         : null
       } */}
 
-      
-
       {/* 글제목의 갯수 만큼 */}
       {/* 글 : 글제목안에 있는 하나하나의 데이터 값 */}
       {/* i : 카운트 수 */}
-      {
-        글제목.map(function(글,i){
-          return ( 
-            <div className="list" key={i}>
-            <h3 onClick={() => {누른제목변경(i)}}> {글} 
-              <span onClick={() => { 따봉변경(따봉 + 1); }}>👍</span>
+      {글제목.map(function (글, i) {
+        return (
+          <div className="list" key={i}>
+            <h3
+              onClick={() => {
+                누른제목변경(i);
+              }}
+            >
+              {" "}
+              {글}
+              <span
+                onClick={() => {
+                  따봉변경(따봉 + 1);
+                }}
+              >
+                👍
+              </span>
               {따봉}
             </h3>
             <p>2월 18일</p>
             <hr />
           </div>
-          )
-        })
-      }
+        );
+      })}
 
       {/* <button onClick={() => {누른제목변경(0)}}>버튼1</button>
       <button onClick={() => {누른제목변경(1)}}>버튼2</button>
@@ -82,29 +89,36 @@ function App() {
 
       {/* <input onChange={ (e) => { 입력값변경(e.target.value) }}></input> */}
 
-      
-      
       {입력값}
       <div className="publish">
-        <input onChange={ (e) => { 입력값변경(e.target.value)}}/>
-        <button onClick={ () => { 
-          var arraycopy = [...글제목];
-          arraycopy.unshift(입력값);
-          글제목변경(arraycopy); 
-        }}>저장</button>
+        <input
+          onChange={(e) => {
+            입력값변경(e.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            var arraycopy = [...글제목];
+            arraycopy.unshift(입력값);
+            글제목변경(arraycopy);
+          }}
+        >
+          저장
+        </button>
       </div>
 
       {/* 애플코딩 */}
-      <button onClick={ ()=>{ modal변경(!modal) } }> 열고닫는버튼 </button>
-      { 
-        modal == true 
-        ? <Modal 글제목={글제목} 누른제목={누른제목}></Modal>
-        : null
-      }
+      <button
+        onClick={() => {
+          modal변경(!modal);
+        }}
+      >
+        {" "}
+        열고닫는버튼{" "}
+      </button>
+      {modal == true ? <Modal 글제목={글제목} 누른제목={누른제목}></Modal> : null}
 
-      <Profile/>
-
-
+      <Profile />
     </div>
   );
 }
@@ -119,42 +133,26 @@ function Modal(props) {
   );
 }
 
-
-
-
-class Profile extends React.Component{
-  constructor(){
+class Profile extends React.Component {
+  constructor() {
     super();
-    this.state = {name : 'kim', age : 30}
+    this.state = { name: "kim", age: 30 };
   }
 
-  changeName(){
-    this.setState({name : 'park'})
+  changeName() {
+    this.setState({ name: "park" });
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <h3>프로필입니다</h3>
         <p>저는 {this.state.name} 입니다.</p>
         {/* <button onClick={ () => {this.setState({name : 'park'}) }}>버튼</button> */}
-        <button onClick={ this.changeName.bind(this)}>버튼</button>
-
+        <button onClick={this.changeName.bind(this)}>버튼</button>
       </div>
-    )
+    );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 export default App;
